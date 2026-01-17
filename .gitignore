@@ -1,0 +1,13 @@
+# data & models
+/data/*
+!/data/.gitkeep
+/models/*
+!/models/.gitkeep
+/__pycache__/
+/.ipynb_checkpoints/
+/.env
+*.pyc
+*.pkl
+*.joblib
+.ipynb_checkpoints/
+.vscode/
