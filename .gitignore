@@ -1,13 +1,23 @@
-# data & models
-/data/*
-!/data/.gitkeep
-/models/*
-!/models/.gitkeep
-/__pycache__/
-/.ipynb_checkpoints/
-/.env
+# Virtual Environment
+.venv/
+
+# Python cache
+__pycache__/
 *.pyc
-*.pkl
-*.joblib
+
+# Jupyter Notebook
 .ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# VS Code
 .vscode/
+
+# Data folder
+data/*
+!data/.gitkeep
+
+# Models folder
+models/*
+!models/.gitkeep
