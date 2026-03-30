@@ -11,5 +11,3 @@
 *.joblib
 .ipynb_checkpoints/
 .vscode/
-.venv/
-
