@@ -5,21 +5,34 @@ import requests
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 MODEL_DIR = BASE_DIR / "models"
 
-def download_model():
+FILES = {
+    "xgb_fraud_model.pkl":
+    "https://huggingface.co/bmaurya05/xplainable_fraud_detection/resolve/main/xgb_fraud_model.pkl",
 
-    model_path = MODEL_DIR / "xgb_fraud_model.pkl"
+    "feature_columns.pkl":
+    "https://huggingface.co/bmaurya05/xplainable_fraud_detection/resolve/main/feature_columns.pkl",
 
-    if not os.path.exists(model_path):
+    "fraud_prototypes.pkl":
+    "https://huggingface.co/bmaurya05/xplainable_fraud_detection/resolve/main/fraud_prototypes.pkl",
 
-        os.makedirs(MODEL_DIR, exist_ok=True)
+    "scaler.pkl":
+    "https://huggingface.co/bmaurya05/xplainable_fraud_detection/resolve/main/scaler.pkl"
+}
 
-        url = "https://huggingface.co/bmaurya05/xplainable_fraud_detection/resolve/main/xgb_fraud_model.pkl"
+def download_files():
 
-        response = requests.get(url)
+    MODEL_DIR.mkdir(exist_ok=True)
 
-        with open(model_path, "wb") as f:
-            f.write(response.content)
+    for filename, url in FILES.items():
 
-        print("Model downloaded")
+        file_path = MODEL_DIR / filename
 
-    return model_path
+        if not file_path.exists():
+
+            response = requests.get(url)
+            response.raise_for_status()
+
+            with open(file_path, "wb") as f:
+                f.write(response.content)
+
+            print(f"{filename} downloaded")

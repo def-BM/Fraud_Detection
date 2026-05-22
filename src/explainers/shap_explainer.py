@@ -2,10 +2,15 @@ import shap
 import joblib
 import pandas as pd
 from pathlib import Path
+from utils.download_model import download_files
+
+# Download required files
+download_files()
 
 # Paths
-MODEL_PATH = Path("models/xgb_fraud_model.pkl")
-FEATURE_NAMES_PATH = Path("models/feature_columns.pkl")
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+MODEL_PATH = BASE_DIR / "models/xgb_fraud_model.pkl"
+FEATURE_NAMES_PATH = BASE_DIR / "models/feature_columns.pkl"
 
 # Load artifacts
 model = joblib.load(MODEL_PATH)
