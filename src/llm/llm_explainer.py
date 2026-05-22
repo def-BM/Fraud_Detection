@@ -1,10 +1,18 @@
 import os
 from groq import Groq
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# try local .env first
+api_key = os.getenv("GROQ_API_KEY")
+
+# If not found, try Streamlit secrets
+if not api_key:
+    api_key = st.secrets.get("GROQ_API_KEY")
+
+client = Groq(api_key=api_key)
 
 def genrate_llm_explanation(
         decision: str,
