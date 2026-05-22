@@ -6,6 +6,10 @@ This project integrates **Machine Learning + Explainability + RAG + LLMs** to ma
 
 ---
 
+## Live Demo: https://xplainablefrauddetection.streamlit.app/
+
+---
+
 ## 📌 Features
 
 - 🔍 Fraud Detection using XGBoost
