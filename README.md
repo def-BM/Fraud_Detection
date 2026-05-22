@@ -133,7 +133,8 @@ MIT License
 
 ---
 
-👨‍💻 Author
-Brijesh Maurya
-Engineering Student (IT)
-Interested in AI, ML & Product Development
+## Author
+Developer: Brijesh Maurya  
+Final Year IT Engineering Student  
+Domain Interests: Data Science, Machine Learning, Business Intelligence
+

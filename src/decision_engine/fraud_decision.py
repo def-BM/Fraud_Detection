@@ -1,8 +1,9 @@
+from utils.download_model import download_model
 import joblib
 import pandas as pd
 
 # Paths
-MODEL_PATH = "models/xgb_fraud_model.pkl"
+MODEL_PATH = download_model()
 # SCALER_PATH = "models/scaler.pkl"
 
 # Config
