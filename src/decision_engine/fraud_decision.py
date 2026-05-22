@@ -1,10 +1,13 @@
-from utils.download_model import download_model
+from utils.download_model import download_files
+from pathlib import Path
 import joblib
 import pandas as pd
 
+download_files()
 # Paths
-MODEL_PATH = download_model()
-# SCALER_PATH = "models/scaler.pkl"
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+MODEL_PATH = BASE_DIR / "models/xgb_fraud_model.pkl"
+# SCALER_PATH = BASE_DIR / "models/scaler.pkl"
 
 # Config
 FRAUD_THRESHOLD = 0.7 # Business decision threshold
