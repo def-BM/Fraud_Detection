@@ -36,42 +36,49 @@ This project integrates **Machine Learning + Explainability + RAG + LLMs** to ma
 ---
 
 ## 📂 Project Structure
+```text
 fraud-detection/
 │
 ├── data/
-| ├── processed_data.csv
-│ └── raw_data.csv
+│   ├── processed_data.csv
+│   └── raw_data.csv
 │
 ├── models/
-| ├── feature_columns.pkl
-| ├── fraud_prototypes.pkl
-│ ├── xgb_fraud.pkl
-│ └── scaler.pkl
+│   ├── feature_columns.pkl
+│   ├── fraud_prototypes.pkl
+│   ├── xgb_fraud.pkl
+│   └── scaler.pkl
 │
 ├── notebooks/
-| ├── 1_data_exploration.ipynb
-| ├── 2_explainability_shap.ipynb
-│ └── 3_model_comp.ipynb
+│   ├── 1_data_exploration.ipynb
+│   ├── 2_explainability_shap.ipynb
+│   └── 3_model_comp.ipynb
 │
 ├── src/
-│ ├── data_preprocessing/ 
-| | └── preprocessing.py
-│ ├── decision_engine/
-| | └── fraud_decision.py
-│ ├── explainers/
-| | └── shap_explainer.py
-| ├── llm/
-| | └── llm_explainer.py
-| ├── models/
-| | ├── feature_mapper.py
-| | ├── model_utils.py
-| | └── train.py
-│ └── app.py
+│   ├── data_preprocessing/
+│   │   └── preprocessing.py
+│   │
+│   ├── decision_engine/
+│   │   └── fraud_decision.py
+│   │
+│   ├── explainers/
+│   │   └── shap_explainer.py
+│   │
+│   ├── llm/
+│   │   └── llm_explainer.py
+│   │
+│   ├── models/
+│   │   ├── feature_mapper.py
+│   │   ├── model_utils.py
+│   │   └── train.py
+│   │
+│   └── app.py
 │
 ├── .env
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
@@ -94,35 +101,57 @@ streamlit run app/main.py
 
 ---
 
-📊 Model Evaluation Metrics
-Classification Report:
-               precision    recall  f1-score   support
+## 📊 Model Evaluation Metrics
+## Classification Report
 
-           0       1.00      1.00      1.00     56864
-           1       0.88      0.83      0.85        98
+| Metric | Class 0 | Class 1 |
+|---------|---------|---------|
+| Precision | 1.00 | 0.88 |
+| Recall | 1.00 | 0.83 |
+| F1-Score | 1.00 | 0.85 |
 
-    accuracy                           1.00     56962
-   macro avg       0.94      0.91      0.93     56962
-weighted avg       1.00      1.00      1.00     56962
+### Overall Performance
 
-Confusion Matrix:
- [[56853    11]
- [   17    81]]
-ROC AUC Score: 0.9731
-Precision-Recall AUC Score: 0.8753
-
-⚠️ Fraud datasets are imbalanced, so Precision & Recall are more important than Accuracy.
+| Metric | Score |
+|---------|------:|
+| Accuracy | 1.00 |
+| Macro Precision | 0.94 |
+| Macro Recall | 0.91 |
+| Macro F1-Score | 0.93 |
+| Weighted F1-Score | 1.00 |
 
 ---
 
-🧠 Explainability
+## Confusion Matrix
+
+```text
+                Predicted
+              Normal  Fraud
+Actual Normal  56853     11
+Actual Fraud      17     81
+```
+
+---
+
+## Performance Metrics
+
+| Metric | Score |
+|---------|------:|
+| ROC-AUC | **0.9731** |
+| Precision-Recall AUC | **0.8753** |
+
+> **Note:** Fraud detection datasets are highly imbalanced. Therefore, **Precision**, **Recall**, **F1-Score**, and **PR-AUC** provide a more reliable evaluation than Accuracy alone.
+
+---
+
+## 🧠 Explainability
 SHAP: Feature contribution analysis
 LIME: Local explanation
 LLM + RAG: Converts technical outputs into human-friendly explanations
 
 ---
 
-🔄 Workflow
+## 🔄 Workflow
 Input transaction data
 Data preprocessing
 Model prediction
@@ -131,7 +160,7 @@ AI-generated explanation
 
 ---
 
-📜 License
+## 📜 License
 
 MIT License
 
